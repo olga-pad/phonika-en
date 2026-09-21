@@ -1,5 +1,5 @@
 'use strict';
-document.write('<script src="./app-core.js?v=34"><\/script>');
+document.write('<script src="./app-core.js?v=35"><\/script>');
 window.addEventListener('DOMContentLoaded',()=>{
  if(localStorage.getItem('phonika-letter-mode')!=='upper'){mode='upper';save();render();}
  const sound=document.getElementById('soundCard');
@@ -38,4 +38,17 @@ window.addEventListener('DOMContentLoaded',()=>{
  document.getElementById('wordsTab').addEventListener('click',()=>requestAnimationFrame(refreshNav));
  document.getElementById('soundsTab').addEventListener('click',()=>requestAnimationFrame(refreshNav));
  refreshNav();
+});
+window.addEventListener('DOMContentLoaded',()=>{
+ const practice=document.getElementById('practice'),stage=practice?.querySelector('.stage'),mastery=document.getElementById('mastery');
+ if(!practice||!stage||!mastery)return;
+ const track=document.createElement('div');track.className='lesson-progress';track.innerHTML='<div class="progress-line"></div><div class="progress-dots"></div><div class="progress-dino">🦕</div><div class="progress-flag">🏁</div>';
+ practice.insertBefore(track,stage);
+ const dots=track.querySelector('.progress-dots'),dino=track.querySelector('.progress-dino');let progress=0;
+ const goal=10;
+ const draw=()=>{dots.replaceChildren(...Array.from({length:goal},(_,i)=>{const s=document.createElement('span');s.className='progress-dot'+(i<progress?' done':'');s.textContent=i<progress?'✓':'';return s;}));const pct=Math.min(100,progress/goal*100);dino.style.left='calc(7% + '+(pct*.86)+'%)';};
+ mastery.addEventListener('click',()=>{setTimeout(()=>{if(mastery.classList.contains('done')||mastery.disabled){progress=Math.min(goal,progress+1);draw();}},0);});
+ document.getElementById('soundsTab')?.addEventListener('click',()=>{progress=0;draw();});
+ document.getElementById('wordsTab')?.addEventListener('click',()=>{progress=0;draw();});
+ draw();
 });

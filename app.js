@@ -1,6 +1,6 @@
 'use strict';
 document.write('<script src="./app-core.js?v=35"><\/script>');
-document.write('<script src="./games/games.js?v=1"><\/script>');
+document.write('<script src="./games/games.js?v=2"><\/script>');
 window.addEventListener('DOMContentLoaded',()=>{
  if(localStorage.getItem('phonika-letter-mode')!=='upper'){mode='upper';save();render();}
  const sound=document.getElementById('soundCard');

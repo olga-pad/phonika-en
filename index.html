@@ -1,78 +1,1325 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f7faf8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><title>Phonika EN</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;background:#f7faf8;color:#173b35;font:17px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.app,main{max-width:700px;margin:auto;padding:18px max(16px,env(safe-area-inset-right)) 18px max(16px,env(safe-area-inset-left))}#childView{height:100dvh;overflow:hidden;display:flex;flex-direction:column;padding-top:12px;padding-bottom:12px}header{display:flex;align-items:center;justify-content:space-between;min-height:44px;flex:0 0 auto}.brand{font-weight:750}.brand span,.quiet{color:#55746d}button,select{font:inherit}button{border:0;cursor:pointer;border-radius:16px;padding:11px 16px;min-height:46px;font-weight:700;touch-action:manipulation}.quiet{background:transparent;color:#55746d}.tabs{display:grid;grid-template-columns:1fr 1fr;background:#eaf1ee;border-radius:18px;padding:5px;margin:7px 0;flex:0 0 auto}.tab{background:transparent;color:#55746d;font-weight:500}.tab.on{background:white;color:#315f55;box-shadow:0 2px 7px #173b3512}.learning{min-height:0;flex:1;display:flex;flex-direction:column;text-align:center;overflow:hidden;justify-content:initial}.stage{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 0}.sound-card{font:800 clamp(110px,30vw,210px)/.9 Arial,sans-serif}.word{font:800 clamp(72px,20vw,126px)/1 Arial,sans-serif;letter-spacing:.035em}.sound-card.cursive,.word.cursive{font-family:"Bad Script",cursive;font-weight:400}.vowel{color:#c62828!important}.consonant{color:#1565c0!important}.picture-slot{width:100%;height:104px;min-height:104px;margin:22px 0;display:flex;align-items:center;justify-content:center}.picture{border:0;background:transparent;font-size:88px;line-height:1;padding:0;min-height:0}.picture[hidden]{display:flex!important;visibility:hidden}.actions{display:grid;gap:8px;width:min(100%,470px);margin:0 auto;flex:0 0 auto}.actions button{min-height:46px;padding:10px 16px}.primary{background:#277c6b;color:white}.help{background:#fff0df;color:#8d431e}.soft{background:#edf5f1;color:#315f55}.mastery{background:#e5f3ed;color:#17614f}.mastery.done{background:#248267;color:white}.mastery:disabled:not(.done){opacity:.55}.confirmation{display:none!important}.finish{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.star{font-size:92px}.continue{width:min(100%,360px)}#parentView{min-height:100dvh}.summary{background:#eaf4ef;border-radius:22px;padding:18px;margin:18px 0;line-height:1.45}.summary strong{display:block;font-size:20px;margin-bottom:5px}.panel{background:white;border-radius:22px;padding:18px;margin:18px 0}.panel h2{margin:0 0 10px;font-size:21px}.intro,.hint,.empty{color:#617c75;line-height:1.45}.known-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.known-sound{min-height:48px;padding:7px;background:#f2f6f4;border:2px solid transparent;font-size:18px}.known-sound.selected{background:#dcefe7;border-color:#277c6b}.known-sound.vowel{color:#c62828}.known-sound.consonant{color:#1565c0}.level-buttons{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}.level-choice{min-height:44px;padding:8px;background:#edf5f1;color:#315f55;border:2px solid transparent}.level-choice.selected{background:#277c6b;color:white}.list{display:grid;gap:8px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#f5f9f6;border-radius:13px;padding:10px 12px}.status{font-size:13px;background:#e7f1ed;border-radius:999px;padding:5px 8px;white-space:nowrap}.mode{width:100%;min-height:52px;border:1px solid #cadbd3;border-radius:13px;background:white;color:#173b35;padding:10px 14px}[hidden]{display:none!important}@media(max-width:430px){#childView{padding-top:8px;padding-bottom:8px}.tabs{margin:5px 0}.stage{padding:3px 0}.sound-card{font-size:clamp(112px,36vw,176px)}.word{font-size:clamp(68px,21vw,106px)}.picture-slot{height:92px;min-height:92px;margin:16px 0}.picture{font-size:70px}.actions{gap:6px}.actions button{min-height:42px;padding:8px 14px}.known-grid{grid-template-columns:repeat(5,1fr)}.level-buttons{grid-template-columns:repeat(5,1fr)}}@media(max-height:700px){#childView header{min-height:38px}.tabs{margin:3px 0}.picture-slot{height:76px;min-height:76px;margin:10px 0}.picture{font-size:60px}.sound-card{font-size:clamp(78px,25vw,135px)}.word{font-size:clamp(52px,16vw,88px)}.actions{gap:5px}.actions button{min-height:38px;padding:6px 12px}}</style><style id="ru-design-port">
-#childView{height:100dvh;overflow:hidden;display:flex;flex-direction:column;max-width:1240px;padding:24px 44px 38px;background:#fffdf8;color:#123f73}
-#childView header{min-height:76px;display:flex;align-items:center;gap:24px;width:100%;max-width:1120px;margin:0 auto}
-#childView .brand{font-size:31px;font-weight:850;color:#123f73;letter-spacing:-.025em}
-#childView .brand span{color:#7d8599}
-#childView #parentOpen{margin-left:auto;border:1px solid #cbd9ea;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f7310;border-radius:15px;padding:11px 20px}
-#childView .tabs{display:grid;grid-template-columns:1fr 1fr;width:min(100%,390px);margin:-66px auto 26px;padding:4px;background:#edf4fb;border:1px solid #d5e1ef;border-radius:24px;position:relative;z-index:2}
-#childView .tab{min-height:52px;border-radius:20px;color:#123f73;font-weight:750;background:transparent}
-#childView .tab.on{background:#2389e8;color:#fff;box-shadow:0 3px 10px #2389e83a}
-#childView .learning{min-height:0;flex:1;display:flex;flex-direction:column;text-align:center;overflow:hidden;width:100%;max-width:1120px;margin:0 auto}
-#childView .stage{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 145px 28px}
-#childView .sound-card{font-size:clamp(142px,22vw,238px);font-weight:800;line-height:.95}
-#childView .word{font-size:clamp(84px,14vw,142px);font-weight:800;letter-spacing:.025em;line-height:1.05}
-#childView .picture-slot{width:100%;height:164px;min-height:164px;margin:18px 0 4px;display:flex;align-items:center;justify-content:center}
-#childView .picture{font-size:120px;background:transparent;border:0}
-#childView .actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;width:min(100%,840px);margin:0 auto 2px}
-#childView .actions button{min-height:68px;padding:12px 18px;border-radius:17px;font-size:18px;box-shadow:0 4px 12px #123f7315}
-#childView .help{background:#2389e8;color:#fff}
-#childView .soft{background:#f8fbff;color:#123f73;border:1px solid #cbd9ea}
-#childView .mastery{background:#35b96f;color:#fff}
-#childView .primary{background:#2389e8;color:#fff}
-#childView #next{display:none}
-#childView .finish .primary,#childView .continue{display:block}
-@media(max-width:700px){#childView{padding:10px 14px 18px}#childView header{min-height:54px}#childView .brand{font-size:22px}#childView #parentOpen{padding:7px 10px;min-height:40px}#childView .tabs{margin:-45px auto 8px;width:min(58%,280px)}#childView .tab{min-height:40px;font-size:15px}#childView .stage{padding:2px 55px 12px}#childView .word{font-size:clamp(58px,20vw,92px)}#childView .sound-card{font-size:clamp(96px,31vw,150px)}#childView .picture-slot{height:96px;min-height:96px;margin:5px 0 0}#childView .picture{font-size:76px}#childView .actions{grid-template-columns:1fr;gap:10px;width:min(100%,440px)}#childView .actions button{min-height:52px;padding:9px 14px;border-radius:14px;font-size:16px}}
-#childView #help{display:flex!important}</style><style id="exact-ru-layout">
-body{background:#fffdf8}
-#childView{height:100dvh;overflow:hidden;display:flex;flex-direction:column;max-width:1240px;padding:24px 44px 38px;background:#fffdf8;color:#123f73}
-#childView header{min-height:76px;flex:0 0 auto;display:flex;align-items:center;gap:24px;width:100%;max-width:1120px;margin:0 auto}
-#childView .brand-lockup{border:0;background:transparent;color:#123f73;padding:0;width:48px;height:48px;min-height:48px;display:flex;align-items:center;justify-content:center}
-#childView .brand-lockup svg{width:45px;height:45px;fill:currentColor}
-#childView #parentOpen{margin-left:auto;border:1px solid #cbd9ea;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f7310;border-radius:15px;padding:11px 20px;display:flex;align-items:center;gap:10px}
-#childView #parentOpen svg{width:26px;height:26px;fill:#123f73}
-#childView .tabs{width:min(100%,390px);margin:-66px auto 26px;padding:4px;background:#edf4fb;border:1px solid #d5e1ef;border-radius:24px;flex:0 0 auto;position:relative;z-index:2}
-#childView .tab{min-height:52px;border-radius:20px;color:#123f73;font-weight:750}
-#childView .tab.on{background:#2389e8;color:#fff;box-shadow:0 3px 10px #2389e83a}
-#childView .learning{min-height:0;flex:1;overflow:hidden;display:flex;flex-direction:column;text-align:center;width:100%;max-width:1120px;margin:0 auto}
-#childView .stage{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 145px 28px;position:relative}
-#childView .word{font-size:clamp(84px,14vw,142px);font-weight:800;letter-spacing:.025em;line-height:1.05}
-#childView .sound-card{font-size:clamp(142px,22vw,238px);font-weight:800;line-height:1.05}
-#childView .picture-slot{width:100%;height:164px;min-height:164px;margin:18px 0 4px;display:flex;align-items:center;justify-content:center}
-#childView .picture{font-size:120px}
-#childView .lesson-nav{position:absolute;inset:0;pointer-events:none}
-#childView .nav-arrow{pointer-events:auto;position:absolute;top:46%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border:1.5px solid #d2deea;border-radius:50%;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f730d;display:flex;align-items:center;justify-content:center}
-#childView .nav-arrow svg{width:30px;height:30px}.nav-prev svg{transform:rotate(180deg)}
-#childView .nav-prev{left:34px}#childView .nav-next{right:34px}#childView .nav-arrow[hidden]{display:none!important}
-#childView .actions{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;width:min(100%,840px);margin:0 auto 2px}
-#childView .actions button{min-height:68px;padding:12px 18px;border-radius:17px;font-size:18px;box-shadow:0 4px 12px #123f7315;display:flex;align-items:center;justify-content:center;gap:11px}
-#childView .actions button svg{width:32px;height:32px;flex:0 0 auto}
-#childView .help{background:#2389e8;color:#fff}.help svg{fill:currentColor}
-#childView .soft{background:#f8fbff;color:#123f73;border:1px solid #cbd9ea}.soft svg{fill:#123f73}
-#childView .mastery{background:#35b96f;color:#fff}.mastery svg{fill:#fff}
-#childView #next{display:none}
-#childView .finish .primary,#childView .continue{display:block}
-@media(max-width:700px){
-#childView{padding:10px 14px 18px}#childView header{min-height:54px}
-#childView .brand-lockup{width:38px;height:38px;min-height:38px}#childView .brand-lockup svg{width:36px;height:36px}
-#childView #parentOpen{padding:7px 9px;min-height:40px;font-size:0}#childView #parentOpen span{display:none}#childView #parentOpen svg{width:24px;height:24px}
-#childView .tabs{margin:-45px auto 8px;width:min(58%,280px)}#childView .tab{min-height:40px;font-size:15px}
-#childView .stage{padding:2px 55px 12px}#childView .word{font-size:clamp(58px,20vw,92px)}#childView .sound-card{font-size:clamp(96px,31vw,150px)}
-#childView .picture-slot{height:96px;min-height:96px;margin:5px 0 0}#childView .picture{font-size:76px}
-#childView .nav-arrow{width:48px;height:48px;min-height:48px;top:45%}#childView .nav-arrow svg{width:25px;height:25px}#childView .nav-prev{left:0}#childView .nav-next{right:0}
-#childView .actions{grid-template-columns:1fr;gap:10px;width:min(100%,440px);margin:0 auto}#childView .actions button{min-height:52px;padding:9px 14px;border-radius:14px;font-size:16px;line-height:1.15;gap:9px}#childView .actions button svg{width:25px;height:25px}
-}
-@media(max-width:390px){#childView{padding-left:10px;padding-right:10px}#childView .actions button{min-height:49px;font-size:15px}#childView .tabs{width:60%}}
-@media(max-height:700px) and (min-width:701px){#childView{padding-top:14px;padding-bottom:24px}#childView header{min-height:60px}#childView .tabs{margin-top:-54px;margin-bottom:12px}#childView .tab{min-height:42px}#childView .word{font-size:clamp(64px,11vw,104px)}#childView .sound-card{font-size:clamp(105px,18vw,172px)}#childView .picture-slot{height:100px;min-height:100px;margin:6px 0 2px}#childView .picture{font-size:76px}#childView .stage{padding-bottom:14px}#childView .actions{gap:18px}#childView .actions button{min-height:54px;padding:8px 14px}}
-</style><style id="shared-ru-sync">
-#parentView .summary{background:#f8f4fb;border:1px solid #e2d3ec;color:#5b4868;border-radius:24px}
-#parentView .panel{background:#f5edf9;border:1px solid #dfcbea;border-radius:24px}
-#parentView .panel h2{color:#173b35}
-#childView .lesson-progress{position:relative;width:min(88%,820px);height:86px;margin:2px auto 4px;flex:0 0 auto}
-#childView .lesson-progress .progress-line{position:absolute;left:7%;right:7%;top:58px;height:6px;background:#d5dee8;border-radius:999px}
-#childView .lesson-progress .progress-dots{position:absolute;left:7%;right:7%;top:43px;display:flex;justify-content:space-between}
-#childView .lesson-progress .progress-dot{width:34px;height:34px;border:5px solid #d5dee8;background:#fffdf8;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800}
-#childView .lesson-progress .progress-dot.done{background:#55bd72;border-color:#55bd72}
-#childView .lesson-progress .progress-dino{position:absolute;top:0;font-size:49px;line-height:1;transform:translateX(-50%) scaleX(-1);transition:left .3s ease}
-#childView .lesson-progress .progress-flag{position:absolute;right:0;top:22px;font-size:42px}
-@media(max-width:700px){#childView .lesson-progress{width:100%;height:76px;margin-top:3px}#childView .lesson-progress .progress-line{left:10%;right:10%;top:53px;height:5px}#childView .lesson-progress .progress-dots{left:10%;right:10%;top:40px}#childView .lesson-progress .progress-dot{width:27px;height:27px;border-width:4px;font-size:13px}#childView .lesson-progress .progress-dino{font-size:42px}#childView .lesson-progress .progress-flag{font-size:34px;top:24px}}
-</style></head><body><main id="childView" class="app"><header><button id="homeButton" class="brand-lockup brand-home" type="button" aria-label="Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.8 12 3l9 7.8V21h-6v-6H9v6H3z"/></svg></button><button id="parentOpen" class="quiet" aria-label="For parents"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="13" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg><span>For parents</span></button></header><div class="tabs"><button id="soundsTab" class="tab on">Sounds</button><button id="wordsTab" class="tab">I read</button></div><section id="practice" class="learning"><div class="stage"><div id="soundCard" class="sound-card"></div><div id="wordCard" class="word" hidden></div><div class="picture-slot"><button id="picture" class="picture" hidden></button></div><div class="lesson-nav"><button id="prevCard" class="nav-arrow nav-prev" type="button" aria-label="Previous" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="nextCard" class="nav-arrow nav-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div><div class="actions"><button id="help" class="help"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4.5 4.5 0 0 0-2-3.74v7.48A4.5 4.5 0 0 0 15.5 12zm0-8.2v2.1a7 7 0 0 1 0 12.2v2.1a9 9 0 0 0 0-16.4z"/></svg><span>Help me read</span></button><button id="showPicture" class="soft"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM6 6v10l3.5-3.5 2.5 2.5 2.5-3 3.5 4V6H6zm2.5 5A1.5 1.5 0 1 0 8.5 8a1.5 1.5 0 0 0 0 3z"/></svg><span>Show picture</span></button><button id="mastery" class="mastery"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12 3 3 6-7" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Read alone</span></button><div id="confirmation" class="confirmation"></div><button id="next" class="primary">Next</button></div></section><section id="finish" class="finish" hidden><div class="star">⭐</div><h1>Great job!</h1><button id="continue" class="primary continue">Continue</button></section></main><section id="parentView" hidden><main><header><button id="parentBack" class="quiet">← Back to practice</button><div class="brand">For parents</div></header><div class="summary"><strong>Adaptive 5 + 5 learning path</strong>Phonika EN shows words that match the sounds and graphemes your child already knows.</div><section class="panel"><h2>Letter style</h2><p class="intro">Choose how letters appear during practice. Uppercase print is the default.</p><select id="mode" class="mode"><option value="upper">ABC</option><option value="lower">abc</option><option value="title">Abc</option><option value="cursiveUpper">cursive ABC</option><option value="cursiveLower">cursive abc</option><option value="cursiveTitle">cursive Abc</option></select></section><section class="panel"><h2>What does my child already know?</h2><p class="intro">Mark sounds and graphemes your child can already read. They will count as mastered.</p><div id="knownSounds" class="known-grid"></div></section><section class="panel"><h2>Current reading level</h2><div id="levelButtons" class="level-buttons"></div><p id="levelHint" class="hint"></p></section><section class="panel"><h2>Sounds now</h2><p class="intro">Up to five sounds are active. When 4 of 5 are mastered, one mastered sound is replaced by a new one; the difficult sound stays.</p><div id="soundQueue" class="list"></div></section><section class="panel"><h2>Mastered sounds</h2><div id="masteredSounds" class="list"></div></section><section class="panel"><h2>Words now</h2><p class="intro">Reading always uses words from the selected level, even while its sounds are still being learned. Each word must be read independently twice; hinted or skipped words stay in the cycle.</p><div id="wordQueue" class="list"></div></section><section class="panel"><h2>Mastered words</h2><div id="masteredWords" class="list"></div></section></main></section><script src="./app.js?v=52"></script><script>(()=>{const b=document.getElementById('mastery');const fix=()=>{if(b&&!b.classList.contains('done')&&b.textContent!=='✓ Read alone')b.textContent='✓ Read alone'};fix();new MutationObserver(fix).observe(b,{childList:true,characterData:true,subtree:true})})();</script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#f7faf8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Phonika EN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: #f7faf8;
+            color: #173b35;
+            font: 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif
+        }
+
+        .app,
+        main {
+            max-width: 700px;
+            margin: auto;
+            padding: 18px max(16px, env(safe-area-inset-right)) 18px max(16px, env(safe-area-inset-left))
+        }
+
+        #childView {
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding-top: 12px;
+            padding-bottom: 12px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 44px;
+            flex: 0 0 auto
+        }
+
+        .brand {
+            font-weight: 750
+        }
+
+        .brand span,
+        .quiet {
+            color: #55746d
+        }
+
+        button,
+        select {
+            font: inherit
+        }
+
+        button {
+            border: 0;
+            cursor: pointer;
+            border-radius: 16px;
+            padding: 11px 16px;
+            min-height: 46px;
+            font-weight: 700;
+            touch-action: manipulation
+        }
+
+        .quiet {
+            background: transparent;
+            color: #55746d
+        }
+
+        .tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #eaf1ee;
+            border-radius: 18px;
+            padding: 5px;
+            margin: 7px 0;
+            flex: 0 0 auto
+        }
+
+        .tab {
+            background: transparent;
+            color: #55746d;
+            font-weight: 500
+        }
+
+        .tab.on {
+            background: white;
+            color: #315f55;
+            box-shadow: 0 2px 7px #173b3512
+        }
+
+        .learning {
+            min-height: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+            justify-content: initial
+        }
+
+        .stage {
+            min-height: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 0
+        }
+
+        .sound-card {
+            font: 800 clamp(110px, 30vw, 210px)/.9 Arial, sans-serif
+        }
+
+        .word {
+            font: 800 clamp(72px, 20vw, 126px)/1 Arial, sans-serif;
+            letter-spacing: .035em
+        }
+
+        .sound-card.cursive,
+        .word.cursive {
+            font-family: "Bad Script", cursive;
+            font-weight: 400
+        }
+
+        .vowel {
+            color: #c62828 !important
+        }
+
+        .consonant {
+            color: #1565c0 !important
+        }
+
+        .picture-slot {
+            width: 100%;
+            height: 104px;
+            min-height: 104px;
+            margin: 22px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .picture {
+            border: 0;
+            background: transparent;
+            font-size: 88px;
+            line-height: 1;
+            padding: 0;
+            min-height: 0
+        }
+
+        .picture[hidden] {
+            display: flex !important;
+            visibility: hidden
+        }
+
+        .actions {
+            display: grid;
+            gap: 8px;
+            width: min(100%, 470px);
+            margin: 0 auto;
+            flex: 0 0 auto
+        }
+
+        .actions button {
+            min-height: 46px;
+            padding: 10px 16px
+        }
+
+        .primary {
+            background: #277c6b;
+            color: white
+        }
+
+        .help {
+            background: #fff0df;
+            color: #8d431e
+        }
+
+        .soft {
+            background: #edf5f1;
+            color: #315f55
+        }
+
+        .mastery {
+            background: #e5f3ed;
+            color: #17614f
+        }
+
+        .mastery.done {
+            background: #248267;
+            color: white
+        }
+
+        .mastery:disabled:not(.done) {
+            opacity: .55
+        }
+
+        .confirmation {
+            display: none !important
+        }
+
+        .finish {
+            min-height: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center
+        }
+
+        .star {
+            font-size: 92px
+        }
+
+        .continue {
+            width: min(100%, 360px)
+        }
+
+        #parentView {
+            min-height: 100dvh
+        }
+
+        .summary {
+            background: #eaf4ef;
+            border-radius: 22px;
+            padding: 18px;
+            margin: 18px 0;
+            line-height: 1.45
+        }
+
+        .summary strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px
+        }
+
+        .panel {
+            background: white;
+            border-radius: 22px;
+            padding: 18px;
+            margin: 18px 0
+        }
+
+        .panel h2 {
+            margin: 0 0 10px;
+            font-size: 21px
+        }
+
+        .intro,
+        .hint,
+        .empty {
+            color: #617c75;
+            line-height: 1.45
+        }
+
+        .known-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px
+        }
+
+        .known-sound {
+            min-height: 48px;
+            padding: 7px;
+            background: #f2f6f4;
+            border: 2px solid transparent;
+            font-size: 18px
+        }
+
+        .known-sound.selected {
+            background: #dcefe7;
+            border-color: #277c6b
+        }
+
+        .known-sound.vowel {
+            color: #c62828
+        }
+
+        .known-sound.consonant {
+            color: #1565c0
+        }
+
+        .level-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin: 14px 0
+        }
+
+        .level-choice {
+            min-height: 44px;
+            padding: 8px;
+            background: #edf5f1;
+            color: #315f55;
+            border: 2px solid transparent
+        }
+
+        .level-choice.selected {
+            background: #277c6b;
+            color: white
+        }
+
+        .list {
+            display: grid;
+            gap: 8px
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            background: #f5f9f6;
+            border-radius: 13px;
+            padding: 10px 12px
+        }
+
+        .status {
+            font-size: 13px;
+            background: #e7f1ed;
+            border-radius: 999px;
+            padding: 5px 8px;
+            white-space: nowrap
+        }
+
+        .mode {
+            width: 100%;
+            min-height: 52px;
+            border: 1px solid #cadbd3;
+            border-radius: 13px;
+            background: white;
+            color: #173b35;
+            padding: 10px 14px
+        }
+
+        [hidden] {
+            display: none !important
+        }
+
+        @media(max-width:430px) {
+            #childView {
+                padding-top: 8px;
+                padding-bottom: 8px
+            }
+
+            .tabs {
+                margin: 5px 0
+            }
+
+            .stage {
+                padding: 3px 0
+            }
+
+            .sound-card {
+                font-size: clamp(112px, 36vw, 176px)
+            }
+
+            .word {
+                font-size: clamp(68px, 21vw, 106px)
+            }
+
+            .picture-slot {
+                height: 92px;
+                min-height: 92px;
+                margin: 16px 0
+            }
+
+            .picture {
+                font-size: 70px
+            }
+
+            .actions {
+                gap: 6px
+            }
+
+            .actions button {
+                min-height: 42px;
+                padding: 8px 14px
+            }
+
+            .known-grid {
+                grid-template-columns: repeat(5, 1fr)
+            }
+
+            .level-buttons {
+                grid-template-columns: repeat(5, 1fr)
+            }
+        }
+
+        @media(max-height:700px) {
+            #childView header {
+                min-height: 38px
+            }
+
+            .tabs {
+                margin: 3px 0
+            }
+
+            .picture-slot {
+                height: 76px;
+                min-height: 76px;
+                margin: 10px 0
+            }
+
+            .picture {
+                font-size: 60px
+            }
+
+            .sound-card {
+                font-size: clamp(78px, 25vw, 135px)
+            }
+
+            .word {
+                font-size: clamp(52px, 16vw, 88px)
+            }
+
+            .actions {
+                gap: 5px
+            }
+
+            .actions button {
+                min-height: 38px;
+                padding: 6px 12px
+            }
+        }
+    </style>
+    <style id="ru-design-port">
+        #childView {
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-width: 1240px;
+            padding: 24px 44px 38px;
+            background: #fffdf8;
+            color: #123f73
+        }
+
+        #childView header {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto
+        }
+
+        #childView .brand {
+            font-size: 31px;
+            font-weight: 850;
+            color: #123f73;
+            letter-spacing: -.025em
+        }
+
+        #childView .brand span {
+            color: #7d8599
+        }
+
+        #childView #parentOpen {
+            margin-left: auto;
+            border: 1px solid #cbd9ea;
+            background: #fff;
+            color: #123f73;
+            box-shadow: 0 2px 8px #123f7310;
+            border-radius: 15px;
+            padding: 11px 20px
+        }
+
+        #childView .tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: min(100%, 390px);
+            margin: -66px auto 26px;
+            padding: 4px;
+            background: #edf4fb;
+            border: 1px solid #d5e1ef;
+            border-radius: 24px;
+            position: relative;
+            z-index: 2
+        }
+
+        #childView .tab {
+            min-height: 52px;
+            border-radius: 20px;
+            color: #123f73;
+            font-weight: 750;
+            background: transparent
+        }
+
+        #childView .tab.on {
+            background: #2389e8;
+            color: #fff;
+            box-shadow: 0 3px 10px #2389e83a
+        }
+
+        #childView .learning {
+            min-height: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto
+        }
+
+        #childView .stage {
+            min-height: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 145px 28px
+        }
+
+        #childView .sound-card {
+            font-size: clamp(142px, 22vw, 238px);
+            font-weight: 800;
+            line-height: .95
+        }
+
+        #childView .word {
+            font-size: clamp(84px, 14vw, 142px);
+            font-weight: 800;
+            letter-spacing: .025em;
+            line-height: 1.05
+        }
+
+        #childView .picture-slot {
+            width: 100%;
+            height: 164px;
+            min-height: 164px;
+            margin: 18px 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        #childView .picture {
+            font-size: 120px;
+            background: transparent;
+            border: 0
+        }
+
+        #childView .actions {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            width: min(100%, 840px);
+            margin: 0 auto 2px
+        }
+
+        #childView .actions button {
+            min-height: 68px;
+            padding: 12px 18px;
+            border-radius: 17px;
+            font-size: 18px;
+            box-shadow: 0 4px 12px #123f7315
+        }
+
+        #childView .help {
+            background: #2389e8;
+            color: #fff
+        }
+
+        #childView .soft {
+            background: #f8fbff;
+            color: #123f73;
+            border: 1px solid #cbd9ea
+        }
+
+        #childView .mastery {
+            background: #35b96f;
+            color: #fff
+        }
+
+        #childView .primary {
+            background: #2389e8;
+            color: #fff
+        }
+
+        #childView #next {
+            display: none
+        }
+
+        #childView .finish .primary,
+        #childView .continue {
+            display: block
+        }
+
+        @media(max-width:700px) {
+            #childView {
+                padding: 10px 14px 18px
+            }
+
+            #childView header {
+                min-height: 54px
+            }
+
+            #childView .brand {
+                font-size: 22px
+            }
+
+            #childView #parentOpen {
+                padding: 7px 10px;
+                min-height: 40px
+            }
+
+            #childView .tabs {
+                margin: -45px auto 8px;
+                width: min(58%, 280px)
+            }
+
+            #childView .tab {
+                min-height: 40px;
+                font-size: 15px
+            }
+
+            #childView .stage {
+                padding: 2px 55px 12px
+            }
+
+            #childView .word {
+                font-size: clamp(58px, 20vw, 92px)
+            }
+
+            #childView .sound-card {
+                font-size: clamp(96px, 31vw, 150px)
+            }
+
+            #childView .picture-slot {
+                height: 96px;
+                min-height: 96px;
+                margin: 5px 0 0
+            }
+
+            #childView .picture {
+                font-size: 76px
+            }
+
+            #childView .actions {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                width: min(100%, 440px)
+            }
+
+            #childView .actions button {
+                min-height: 52px;
+                padding: 9px 14px;
+                border-radius: 14px;
+                font-size: 16px
+            }
+        }
+
+        #childView #help {
+            display: flex !important
+        }
+    </style>
+    <style id="exact-ru-layout">
+        body {
+            background: #fffdf8
+        }
+
+        #childView {
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-width: 1240px;
+            padding: 24px 44px 38px;
+            background: #fffdf8;
+            color: #123f73
+        }
+
+        #childView header {
+            min-height: 76px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto
+        }
+
+        #childView .brand-lockup {
+            border: 0;
+            background: transparent;
+            color: #123f73;
+            padding: 0;
+            width: 48px;
+            height: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        #childView .brand-lockup svg {
+            width: 45px;
+            height: 45px;
+            fill: currentColor
+        }
+
+        #childView #parentOpen {
+            margin-left: auto;
+            border: 1px solid #cbd9ea;
+            background: #fff;
+            color: #123f73;
+            box-shadow: 0 2px 8px #123f7310;
+            border-radius: 15px;
+            padding: 11px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        #childView #parentOpen svg {
+            width: 26px;
+            height: 26px;
+            fill: #123f73
+        }
+
+        #childView .tabs {
+            width: min(100%, 390px);
+            margin: -66px auto 26px;
+            padding: 4px;
+            background: #edf4fb;
+            border: 1px solid #d5e1ef;
+            border-radius: 24px;
+            flex: 0 0 auto;
+            position: relative;
+            z-index: 2
+        }
+
+        #childView .tab {
+            min-height: 52px;
+            border-radius: 20px;
+            color: #123f73;
+            font-weight: 750
+        }
+
+        #childView .tab.on {
+            background: #2389e8;
+            color: #fff;
+            box-shadow: 0 3px 10px #2389e83a
+        }
+
+        #childView .learning {
+            min-height: 0;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto
+        }
+
+        #childView .stage {
+            min-height: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 145px 28px;
+            position: relative
+        }
+
+        #childView .word {
+            font-size: clamp(84px, 14vw, 142px);
+            font-weight: 800;
+            letter-spacing: .025em;
+            line-height: 1.05
+        }
+
+        #childView .sound-card {
+            font-size: clamp(142px, 22vw, 238px);
+            font-weight: 800;
+            line-height: 1.05
+        }
+
+        #childView .picture-slot {
+            width: 100%;
+            height: 164px;
+            min-height: 164px;
+            margin: 18px 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        #childView .picture {
+            font-size: 120px
+        }
+
+        #childView .lesson-nav {
+            position: absolute;
+            inset: 0;
+            pointer-events: none
+        }
+
+        #childView .nav-arrow {
+            pointer-events: auto;
+            position: absolute;
+            top: 46%;
+            transform: translateY(-50%);
+            width: 58px;
+            height: 58px;
+            min-height: 58px;
+            padding: 0;
+            border: 1.5px solid #d2deea;
+            border-radius: 50%;
+            background: #fff;
+            color: #123f73;
+            box-shadow: 0 2px 8px #123f730d;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        #childView .nav-arrow svg {
+            width: 30px;
+            height: 30px
+        }
+
+        .nav-prev svg {
+            transform: rotate(180deg)
+        }
+
+        #childView .nav-prev {
+            left: 34px
+        }
+
+        #childView .nav-next {
+            right: 34px
+        }
+
+        #childView .nav-arrow[hidden] {
+            display: none !important
+        }
+
+        #childView .actions {
+            flex: 0 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            width: min(100%, 840px);
+            margin: 0 auto 2px
+        }
+
+        #childView .actions button {
+            min-height: 68px;
+            padding: 12px 18px;
+            border-radius: 17px;
+            font-size: 18px;
+            box-shadow: 0 4px 12px #123f7315;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 11px
+        }
+
+        #childView .actions button svg {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 auto
+        }
+
+        #childView .help {
+            background: #2389e8;
+            color: #fff
+        }
+
+        .help svg {
+            fill: currentColor
+        }
+
+        #childView .soft {
+            background: #f8fbff;
+            color: #123f73;
+            border: 1px solid #cbd9ea
+        }
+
+        .soft svg {
+            fill: #123f73
+        }
+
+        #childView .mastery {
+            background: #35b96f;
+            color: #fff
+        }
+
+        .mastery svg {
+            fill: #fff
+        }
+
+        #childView #next {
+            display: none
+        }
+
+        #childView .finish .primary,
+        #childView .continue {
+            display: block
+        }
+
+        @media(max-width:700px) {
+            #childView {
+                padding: 10px 14px 18px
+            }
+
+            #childView header {
+                min-height: 54px
+            }
+
+            #childView .brand-lockup {
+                width: 38px;
+                height: 38px;
+                min-height: 38px
+            }
+
+            #childView .brand-lockup svg {
+                width: 36px;
+                height: 36px
+            }
+
+            #childView #parentOpen {
+                padding: 7px 9px;
+                min-height: 40px;
+                font-size: 0
+            }
+
+            #childView #parentOpen span {
+                display: none
+            }
+
+            #childView #parentOpen svg {
+                width: 24px;
+                height: 24px
+            }
+
+            #childView .tabs {
+                margin: -45px auto 8px;
+                width: min(58%, 280px)
+            }
+
+            #childView .tab {
+                min-height: 40px;
+                font-size: 15px
+            }
+
+            #childView .stage {
+                padding: 2px 55px 12px
+            }
+
+            #childView .word {
+                font-size: clamp(58px, 20vw, 92px)
+            }
+
+            #childView .sound-card {
+                font-size: clamp(96px, 31vw, 150px)
+            }
+
+            #childView .picture-slot {
+                height: 96px;
+                min-height: 96px;
+                margin: 5px 0 0
+            }
+
+            #childView .picture {
+                font-size: 76px
+            }
+
+            #childView .nav-arrow {
+                width: 48px;
+                height: 48px;
+                min-height: 48px;
+                top: 45%
+            }
+
+            #childView .nav-arrow svg {
+                width: 25px;
+                height: 25px
+            }
+
+            #childView .nav-prev {
+                left: 0
+            }
+
+            #childView .nav-next {
+                right: 0
+            }
+
+            #childView .actions {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                width: min(100%, 440px);
+                margin: 0 auto
+            }
+
+            #childView .actions button {
+                min-height: 52px;
+                padding: 9px 14px;
+                border-radius: 14px;
+                font-size: 16px;
+                line-height: 1.15;
+                gap: 9px
+            }
+
+            #childView .actions button svg {
+                width: 25px;
+                height: 25px
+            }
+        }
+
+        @media(max-width:390px) {
+            #childView {
+                padding-left: 10px;
+                padding-right: 10px
+            }
+
+            #childView .actions button {
+                min-height: 49px;
+                font-size: 15px
+            }
+
+            #childView .tabs {
+                width: 60%
+            }
+        }
+
+        @media(max-height:700px) and (min-width:701px) {
+            #childView {
+                padding-top: 14px;
+                padding-bottom: 24px
+            }
+
+            #childView header {
+                min-height: 60px
+            }
+
+            #childView .tabs {
+                margin-top: -54px;
+                margin-bottom: 12px
+            }
+
+            #childView .tab {
+                min-height: 42px
+            }
+
+            #childView .word {
+                font-size: clamp(64px, 11vw, 104px)
+            }
+
+            #childView .sound-card {
+                font-size: clamp(105px, 18vw, 172px)
+            }
+
+            #childView .picture-slot {
+                height: 100px;
+                min-height: 100px;
+                margin: 6px 0 2px
+            }
+
+            #childView .picture {
+                font-size: 76px
+            }
+
+            #childView .stage {
+                padding-bottom: 14px
+            }
+
+            #childView .actions {
+                gap: 18px
+            }
+
+            #childView .actions button {
+                min-height: 54px;
+                padding: 8px 14px
+            }
+        }
+    </style>
+    <style id="shared-ru-sync">
+        #parentView .summary {
+            background: #f8f4fb;
+            border: 1px solid #e2d3ec;
+            color: #5b4868;
+            border-radius: 24px
+        }
+
+        #parentView .panel {
+            background: #f5edf9;
+            border: 1px solid #dfcbea;
+            border-radius: 24px
+        }
+
+        #parentView .panel h2 {
+            color: #173b35
+        }
+
+        #childView .lesson-progress {
+            position: relative;
+            width: min(88%, 820px);
+            height: 86px;
+            margin: 2px auto 4px;
+            flex: 0 0 auto
+        }
+
+        #childView .lesson-progress .progress-line {
+            position: absolute;
+            left: 7%;
+            right: 7%;
+            top: 58px;
+            height: 6px;
+            background: #d5dee8;
+            border-radius: 999px
+        }
+
+        #childView .lesson-progress .progress-dots {
+            position: absolute;
+            left: 7%;
+            right: 7%;
+            top: 43px;
+            display: flex;
+            justify-content: space-between
+        }
+
+        #childView .lesson-progress .progress-dot {
+            width: 34px;
+            height: 34px;
+            border: 5px solid #d5dee8;
+            background: #fffdf8;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 800
+        }
+
+        #childView .lesson-progress .progress-dot.done {
+            background: #55bd72;
+            border-color: #55bd72
+        }
+
+        #childView .lesson-progress .progress-dino {
+            position: absolute;
+            top: 0;
+            font-size: 49px;
+            line-height: 1;
+            transform: translateX(-50%) scaleX(-1);
+            transition: left .3s ease
+        }
+
+        #childView .lesson-progress .progress-flag {
+            position: absolute;
+            right: 0;
+            top: 22px;
+            font-size: 42px
+        }
+
+        @media(max-width:700px) {
+            #childView .lesson-progress {
+                width: 100%;
+                height: 76px;
+                margin-top: 3px
+            }
+
+            #childView .lesson-progress .progress-line {
+                left: 10%;
+                right: 10%;
+                top: 53px;
+                height: 5px
+            }
+
+            #childView .lesson-progress .progress-dots {
+                left: 10%;
+                right: 10%;
+                top: 40px
+            }
+
+            #childView .lesson-progress .progress-dot {
+                width: 27px;
+                height: 27px;
+                border-width: 4px;
+                font-size: 13px
+            }
+
+            #childView .lesson-progress .progress-dino {
+                font-size: 42px
+            }
+
+            #childView .lesson-progress .progress-flag {
+                font-size: 34px;
+                top: 24px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main id="childView" class="app">
+        <header><button id="homeButton" class="brand-lockup brand-home" type="button" aria-label="Home"><svg
+                    viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 10.8 12 3l9 7.8V21h-6v-6H9v6H3z" />
+                </svg></button><button id="parentOpen" class="quiet" aria-label="For parents"><svg viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <rect x="3" y="13" width="4" height="8" rx="1" />
+                    <rect x="10" y="8" width="4" height="13" rx="1" />
+                    <rect x="17" y="3" width="4" height="18" rx="1" />
+                </svg><span>For parents</span></button></header>
+        <div class="tabs">
+            <button id="soundsTab" class="tab on">Sounds</button>
+            <button id="wordsTab" class="tab">I read</button>
+            <button id="gamesTab" class="tab">Games</button>
+        </div>
+        <section id="practice" class="learning">
+            <div class="stage">
+                <div id="soundCard" class="sound-card"></div>
+                <div id="wordCard" class="word" hidden></div>
+                <div class="picture-slot"><button id="picture" class="picture" hidden></button></div>
+                <div class="lesson-nav"><button id="prevCard" class="nav-arrow nav-prev" type="button"
+                        aria-label="Previous" hidden><svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></button><button id="nextCard" class="nav-arrow nav-next" type="button"
+                        aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></button></div>
+            </div>
+            <div class="actions"><button id="help" class="help"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a4.5 4.5 0 0 0-2-3.74v7.48A4.5 4.5 0 0 0 15.5 12zm0-8.2v2.1a7 7 0 0 1 0 12.2v2.1a9 9 0 0 0 0-16.4z" />
+                    </svg><span>Help me read</span></button><button id="showPicture" class="soft"><svg
+                        viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M4 4h16v16H4zM6 6v10l3.5-3.5 2.5 2.5 2.5-3 3.5 4V6H6zm2.5 5A1.5 1.5 0 1 0 8.5 8a1.5 1.5 0 0 0 0 3z" />
+                    </svg><span>Show picture</span></button><button id="mastery" class="mastery"><svg
+                        viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m7.5 12 3 3 6-7" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg><span>Read alone</span></button>
+                <div id="confirmation" class="confirmation"></div><button id="next" class="primary">Next</button>
+            </div>
+        </section>
+        <section id="finish" class="finish" hidden>
+            <div class="star">⭐</div>
+            <h1>Great job!</h1><button id="continue" class="primary continue">Continue</button>
+        </section>
+    </main>
+    <section id="parentView" hidden>
+        <main>
+            <header><button id="parentBack" class="quiet">← Back to practice</button>
+                <div class="brand">For parents</div>
+            </header>
+            <div class="summary"><strong>Adaptive 5 + 5 learning path</strong>Phonika EN shows words that match the
+                sounds and graphemes your child already knows.</div>
+            <section class="panel">
+                <h2>Letter style</h2>
+                <p class="intro">Choose how letters appear during practice. Uppercase print is the default.</p><select
+                    id="mode" class="mode">
+                    <option value="upper">ABC</option>
+                    <option value="lower">abc</option>
+                    <option value="title">Abc</option>
+                    <option value="cursiveUpper">cursive ABC</option>
+                    <option value="cursiveLower">cursive abc</option>
+                    <option value="cursiveTitle">cursive Abc</option>
+                </select>
+            </section>
+            <section class="panel">
+                <h2>What does my child already know?</h2>
+                <p class="intro">Mark sounds and graphemes your child can already read. They will count as mastered.</p>
+                <div id="knownSounds" class="known-grid"></div>
+            </section>
+            <section class="panel">
+                <h2>Current reading level</h2>
+                <div id="levelButtons" class="level-buttons"></div>
+                <p id="levelHint" class="hint"></p>
+            </section>
+            <section class="panel">
+                <h2>Sounds now</h2>
+                <p class="intro">Up to five sounds are active. When 4 of 5 are mastered, one mastered sound is replaced
+                    by a new one; the difficult sound stays.</p>
+                <div id="soundQueue" class="list"></div>
+            </section>
+            <section class="panel">
+                <h2>Mastered sounds</h2>
+                <div id="masteredSounds" class="list"></div>
+            </section>
+            <section class="panel">
+                <h2>Words now</h2>
+                <p class="intro">Reading always uses words from the selected level, even while its sounds are still
+                    being learned. Each word must be read independently twice; hinted or skipped words stay in the
+                    cycle.</p>
+                <div id="wordQueue" class="list"></div>
+            </section>
+            <section class="panel">
+                <h2>Mastered words</h2>
+                <div id="masteredWords" class="list"></div>
+            </section>
+        </main>
+    </section>
+    <script src="./app.js?v=52"></script>
+    <script>(() => {const b = document.getElementById('mastery'); const fix = () => {if (b && !b.classList.contains('done') && b.textContent !== '✓ Read alone') b.textContent = '✓ Read alone'}; fix(); new MutationObserver(fix).observe(b, {childList: true, characterData: true, subtree: true})})();</script>
+</body>
+
+</html>

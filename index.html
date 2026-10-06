@@ -77,7 +77,7 @@
 
         .tabs {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             background: #eaf1ee;
             border-radius: 18px;
             padding: 5px;
@@ -481,7 +481,7 @@
 
         #childView .tabs {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             width: min(100%, 390px);
             margin: -66px auto 26px;
             padding: 4px;
@@ -1230,6 +1230,15 @@
             <button id="wordsTab" class="tab">I read</button>
             <button id="gamesTab" class="tab">Games</button>
         </div>
+        <section id="gamesView" class="games-view" hidden>
+            <div id="gamesGrid" class="games-grid">
+                <button type="button" class="game-card" data-game="find"><span>🔎</span>Find</button>
+                <button type="button" class="game-card" data-game="catch"><span>🫧</span>Catch</button>
+                <button type="button" class="game-card" data-game="build"><span>🧩</span>Build Word</button>
+                <button type="button" class="game-card" data-game="missing"><span>❓</span>What’s Missing?</button>
+            </div>
+            <div id="gameHost"></div>
+        </section>
         <section id="practice" class="learning">
             <div class="stage">
                 <div id="soundCard" class="sound-card"></div>

@@ -1,10 +1,10 @@
 'use strict';
-window.addEventListener('DOMContentLoaded',()=>{
+function initGames(){
  const $=id=>document.getElementById(id);
  const shuffle=items=>{const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
  const targetOf=t=>t.targetWord;
  const arrangeTasks=tasks=>{const buckets=new Map();tasks.forEach(t=>{const k=targetOf(t);if(!buckets.has(k))buckets.set(k,[]);buckets.get(k).push(t);});buckets.forEach((v,k)=>buckets.set(k,shuffle(v)));const out=[];while(out.length<tasks.length){const last=targetOf(out.at(-1)||{}),c=[...buckets.entries()].filter(([k,v])=>v.length&&k!==last);if(!c.length)break;const max=Math.max(...c.map(([,v])=>v.length));const [,bucket]=shuffle(c.filter(([,v])=>v.length===max))[0];out.push(bucket.pop());}return out;};
- const createDoubleExposureTasks=(items,pool,make)=>{const tasks=[];[...new Set(items)].forEach(target=>{const others=shuffle([...new Set(pool)].filter(x=>x!==target));if(!others.length)return;const ds=others.slice(0,2);if(ds.length===1)ds.push(ds[0]);ds.forEach(d=>tasks.push(make(target,d));});return arrangeTasks(tasks);};
+ const createDoubleExposureTasks=(items,pool,make)=>{const tasks=[];[...new Set(items)].forEach(target=>{const others=shuffle([...new Set(pool)].filter(x=>x!==target));if(!others.length)return;const ds=others.slice(0,2);if(ds.length===1)ds.push(ds[0]);ds.forEach(d=>tasks.push(make(target,d)));});return arrangeTasks(tasks);};
  const availableWords=()=>wordsThroughLevel().filter(wordAvailable);
  const pool=()=>[...new Set(availableWords().map(x=>x.word))];
  const data=w=>availableWords().find(x=>x.word===w);
@@ -38,4 +38,10 @@ window.addEventListener('DOMContentLoaded',()=>{
  $('parentOpen')?.addEventListener('click',()=>{if(!view.hidden)localStorage.setItem('phonika-en-return-games',active||'list');});
  $('parentBack')?.addEventListener('click',()=>{const ret=localStorage.getItem('phonika-en-return-games');if(!ret)return;localStorage.removeItem('phonika-en-return-games');requestAnimationFrame(()=>{showList();if(ret==='find')startFind();else if(ret==='catch')startCatch();else if(ret==='build')startBuild();else if(ret==='missing')startMissing();});});
  window.PhonikaGamesEN={shuffle,arrangeTasks,availableWords,pool,graphemesForWord:graphemes};
-});
+}
+
+if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', initGames);
+} else {
+ initGames();
+}

@@ -35,6 +35,12 @@ function initGames(){
  .correct-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}.correct-confetti span{position:absolute;left:50%;top:58%;font-size:24px;animation:findBurst .85s ease-out forwards;transform:rotate(calc(var(--i)*36deg)) translateY(-10px)}@keyframes findBurst{to{transform:rotate(calc(var(--i)*36deg)) translateY(-130px);opacity:0}}
  @media(max-width:430px){.find-header{margin-bottom:4px}.find-back{font-size:15px}.find-title{font-size:18px}.find-modes{width:210px;margin-bottom:6px}.find-mode{min-height:36px;font-size:14px}.find-game .dino-track .dino{font-size:58px;top:-7px}.find-question-row{min-height:82px;padding:0 54px;margin-bottom:10px}.find-question{font-size:25px}.find-picture{min-width:64px;min-height:64px;font-size:40px}.find-nav-arrow{width:48px;height:48px;min-height:48px;font-size:29px}.find-nav-arrow:first-child{left:0}.find-nav-arrow:last-child{right:0}.find-answers{gap:10px}.find-answer{min-height:76px;font-size:26px}}
  /* RU Find effective visual system: copied from current child-layout.css. */
+ /* Keep Games/Find on the same EN child-app geometry as Reading. */
+ #childView:has(#findGame:not([hidden])){max-width:none;padding-left:44px;padding-right:44px}
+ #childView:has(#findGame:not([hidden])) #gamesView{width:100%;max-width:none;margin:0;align-self:stretch}
+ #childView:has(#findGame:not([hidden])) .find-game{width:100%;max-width:none;margin:0;align-self:stretch}
+ @media(max-width:700px){#childView:has(#findGame:not([hidden])){padding-left:14px;padding-right:14px}}
+ @media(max-width:390px){#childView:has(#findGame:not([hidden])){padding-left:10px;padding-right:10px}}
  #childView:has(#findGame:not([hidden])){height:100dvh;overflow:hidden;display:flex;flex-direction:column;max-width:1240px;padding:24px 44px 38px;background:#fffdf8;color:#123f73}
  #childView:has(#findGame:not([hidden]))>header{min-height:76px;flex:0 0 auto;display:flex;align-items:center;gap:24px;width:100%;max-width:1120px;margin:0 auto}
  #childView:has(#findGame:not([hidden]))>.tabs{display:none}

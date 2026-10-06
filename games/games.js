@@ -63,10 +63,13 @@ function initGames(){
  #childView .find-answer{min-width:0;min-height:82px;padding:12px 18px;border-radius:17px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315;font-size:clamp(30px,4.2vw,54px);font-weight:800;line-height:1.05;white-space:normal;overflow-wrap:anywhere;display:flex;align-items:center;justify-content:center}
  #childView .find-answer.correct{background:#35b96f;color:#fff;border-color:#35b96f}#childView .find-answer.try-again{background:#edf4fb;border-color:#cbd9ea}
  /* Catch = current RU Catch component design. */
- #childView #gameHost .catch-area{position:relative;width:100%;height:330px;min-height:220px;overflow:hidden}
- #childView #gameHost .catch-answer{position:absolute;left:0;top:0;box-sizing:border-box;width:max-content;min-width:132px;max-width:calc(100% - 28px);height:auto;min-height:82px;padding:10px 26px;white-space:nowrap;overflow:visible;border-radius:17px;font-size:clamp(30px,5vw,40px);line-height:1.15;font-weight:800}
+ #childView #gameHost .game-task:has(.catch-area){flex-direction:column;gap:0;padding:0 76px}
+ #childView #gameHost .game-task:has(.catch-area) .game-picture{min-width:76px;width:auto;height:76px;min-height:76px;padding:0;font-size:48px}
+ #childView #gameHost .catch-area{position:relative;width:100%;max-width:920px;height:330px;min-height:220px;overflow:hidden}
+ #childView #gameHost .catch-answer{position:absolute;left:0;top:0;box-sizing:border-box;width:max-content;min-width:132px;max-width:calc(100% - 28px);height:auto;min-height:82px;padding:10px 26px;white-space:nowrap;overflow:visible;border-radius:17px;font-size:clamp(30px,5vw,40px);line-height:1.15;font-weight:800;transition-property:transform;transition-timing-function:ease-in-out}
  #childView #gameHost .catch-answer.correct{background:#35b96f;color:#fff}
- /* Build Word = current RU component proportions. */
+ #childView #gameHost .game-task:has(.build-slots),#childView #gameHost .game-task:has(.missing-pair){flex-direction:column;gap:24px}
+  /* Build Word = current RU component proportions. */
  #childView #gameHost .build-slots,#childView #gameHost .build-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}
  #childView #gameHost .build-slot,#childView #gameHost .build-tile{width:clamp(50px,12vw,68px);height:clamp(58px,14vw,76px);min-height:0;padding:4px;border-radius:14px;font-size:clamp(28px,8vw,40px);font-weight:800}
  #childView #gameHost .build-slot{background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;border-bottom:4px solid #cbd9ea}
@@ -104,6 +107,8 @@ function initGames(){
   #childView .find-picture,#childView #gameHost .game-picture{width:82px;height:82px;min-width:82px;min-height:82px;font-size:62px;padding:2px}
   #childView .find-answers{gap:10px;width:min(100%,440px)}
   #childView .find-answer{min-height:68px;padding:9px 10px;border-radius:14px;font-size:clamp(28px,9vw,42px)}
+  #childView #gameHost .game-task:has(.catch-area){padding:0 55px}
+  #childView #gameHost .game-task:has(.catch-area) .game-picture{min-width:76px;width:auto;height:76px;min-height:76px;font-size:48px}
   #childView #gameHost .catch-answer{min-width:112px;max-width:calc(100% - 20px);min-height:70px;padding:8px 18px;font-size:clamp(28px,8vw,36px)}
   #childView #gameHost .build-slot,#childView #gameHost .build-tile{width:clamp(44px,13vw,58px);height:clamp(52px,15vw,66px);font-size:clamp(25px,8vw,34px)}
   #childView #gameHost .missing-pair{gap:10px}#childView #gameHost .missing-word{min-height:72px;padding:8px}

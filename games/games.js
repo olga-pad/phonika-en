@@ -17,151 +17,102 @@ function initGames(){
  const style=document.createElement('style');style.textContent=`
  #gamesView{min-height:0;flex:1;width:100%;max-width:1120px;margin:0 auto;overflow:auto;padding:12px 0 24px;color:#123f73}
  .games-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;width:min(100%,760px);margin:28px auto}
- .find-game{width:min(100%,620px);margin:0 auto;text-align:center;position:relative}.find-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 8px}.find-back{min-height:40px;padding:7px 4px;background:transparent;color:#55746d;border-radius:10px;font-size:16px;font-weight:700}.find-title{color:#123f73;font-size:20px;font-weight:800}.find-modes{display:grid;grid-template-columns:repeat(2,1fr);background:#edf4fb;border:1px solid #d5e1ef;border-radius:18px;padding:3px;width:min(100%,230px);margin:0 auto 8px}.find-mode{min-height:38px;background:transparent;color:#123f73;border-radius:15px;padding:6px 10px;font-size:15px;font-weight:750}.find-mode.active{background:#2389e8;color:#fff;box-shadow:0 2px 7px #2389e82c}
- #childView .dino-track{position:relative;width:min(78%,600px);height:82px;margin:5px auto 0;flex:0 0 82px;padding-right:68px}
+.game-card{min-height:150px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;border-radius:22px;box-shadow:0 4px 12px #123f7315;font-size:22px;display:grid;place-items:center;gap:6px}.game-card span{font-size:48px}.game-card:active{background:#2389e8;color:#fff;transform:scale(.985)}
+ .en-game{width:min(100%,920px);margin:0 auto;text-align:center;position:relative}.game-header{display:flex;align-items:center;justify-content:center;position:relative;min-height:58px}.game-back{position:absolute;left:0;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea}.game-title{font-size:25px;font-weight:850}.game-progress{display:flex;justify-content:center;gap:7px;margin:16px auto 24px}.game-step{width:25px;height:25px;border-radius:50%;background:#edf4fb;border:1px solid #cbd9ea;font-size:15px;display:grid;place-items:center}.game-step.done{background:#35b96f;color:white;border-color:#35b96f}.game-task{min-height:330px;display:grid;align-content:center;justify-items:center;gap:24px;position:relative;padding:0 76px}.game-picture{background:transparent;font-size:64px;min-height:70px;padding:0}.game-prompt{font-size:25px;font-weight:800}.game-answers{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}.game-answer,.build-tile,.build-slot{min-width:92px;min-height:70px;padding:10px 18px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315;border-radius:16px;font-size:34px;font-weight:800}.game-answer.correct,.build-slot.correct{background:#35b96f;color:white;border-color:#35b96f}.game-answer.wrong{box-shadow:0 0 0 3px #d6e0eb inset}.game-nav{position:absolute;top:50%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border-radius:50%;background:white;color:#123f73;border:1px solid #cbd9ea}.game-prev{left:5px}.game-next{right:5px}.game-next.ready{background:#35b96f;color:#fff;border-color:#35b96f}.game-complete,.game-empty{min-height:430px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.game-complete h1,.game-complete p,.game-empty h2,.game-empty p{margin:0}.game-dino{font-size:74px}.game-fireworks{font-size:34px}.game-again{margin-top:22px}.build-slots,.build-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}.build-slot{min-width:66px}.build-slot.empty{background:transparent;box-shadow:none;border:0;border-bottom:4px solid #cbd9ea;border-radius:0}.build-tile{min-width:66px}.build-tile:disabled{visibility:hidden}.missing-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:min(100%,520px)}.missing-word{min-height:86px;padding:15px;border-radius:16px;background:#f8fbff;border:1px solid #cbd9ea;font-size:38px;font-weight:800;display:grid;place-items:center}.catch-area{position:relative;width:100%;height:330px;overflow:hidden}.catch-answer{position:absolute;min-width:130px;min-height:78px;transition:transform 5s ease-in-out}.catch-answer.correct{background:#35b96f;color:white}.game-empty small{color:#7d8599}
+ @media(max-width:700px){#childView .tabs{width:min(78%,360px)}.games-grid{gap:12px;margin-top:12px}.game-card{min-height:112px;font-size:17px}.game-card span{font-size:38px}.game-task{padding:0 54px;min-height:290px}.game-answer,.build-tile,.build-slot{font-size:27px;min-width:68px;min-height:60px}.game-nav{width:48px;height:48px;min-height:48px}.game-back{font-size:14px;padding:8px 10px}.missing-word{font-size:30px}}
+ /* Unified Games visual system: EN Reading workspace + current RU game design. */
+ #childView:has(#gamesView:not([hidden])){height:100dvh;overflow:hidden;display:flex;flex-direction:column;padding:24px 44px 38px;background:#fffdf8;color:#123f73}
+ #childView:has(#gamesView:not([hidden])) #gamesView{min-height:0;flex:1;width:100%;max-width:none;margin:0;overflow:hidden;padding:0}
+ #childView:has(#gamesView:not([hidden])) #gameHost{width:100%;height:100%;min-height:0;flex:1}
+ #childView:has(#gamesView:not([hidden])) .find-game,#childView:has(#gameHost:not([hidden])) .en-game{width:100%;max-width:none;height:100%;margin:0;display:flex;flex-direction:column;position:relative;text-align:center;overflow:visible}
+ #childView:has(#gamesView:not([hidden])) .find-header,#childView:has(#gameHost:not([hidden])) .game-header{width:100%;margin:0;min-height:46px;display:flex;align-items:center;justify-content:space-between;flex:0 0 auto;position:relative}
+ #childView:has(#gamesView:not([hidden])) .find-back,#childView:has(#gameHost:not([hidden])) .game-back{position:static;min-height:44px;padding:7px 4px;background:transparent;color:#55746d;border:0;border-radius:10px;font-size:16px;font-weight:700;box-shadow:none}
+ #childView:has(#gamesView:not([hidden])) .find-title,#childView:has(#gameHost:not([hidden])) .game-title{position:absolute;left:50%;transform:translateX(-50%);color:#123f73;font-size:20px;font-weight:800}
+ /* RU Find mode selector in the normal header/tab slot. */
+ #childView .find-modes{position:fixed;z-index:12;top:34px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,390px);margin:0;padding:4px;background:#edf4fb;border:1px solid #d5e1ef;border-radius:24px}
+ #childView .find-mode{min-height:52px;border-radius:20px;padding:6px 14px;background:transparent;color:#123f73;font-size:16px;font-weight:750}
+ #childView .find-mode.active{background:#2389e8;color:#fff;box-shadow:0 3px 10px #2389e83a}
+ /* Native RU dinosaur track used by Find. */
+ #childView .dino-track{position:relative;width:min(78%,600px);height:82px;margin:34px auto 5px;flex:0 0 82px;padding-left:46px!important;padding-right:46px!important;transform:translateY(16px)!important;overflow:visible!important}
  #childView .dino-path{position:absolute;left:36px;right:50px;top:48px;height:6px;background:#d9e1e8;border-radius:99px}
  #childView .dino-steps{position:absolute;left:39px;right:53px;top:35px;display:flex;justify-content:space-between}
  #childView .dino-step{width:31px;height:31px;border-radius:50%;background:#fff;border:4px solid #d5dde6;transition:.25s transform,.25s background}
  #childView .dino-step.done{background:#35b96f;border-color:#35b96f;transform:scale(1.06);color:#fff;display:flex;align-items:center;justify-content:center}
  #childView .dino-step.half{background:linear-gradient(90deg,#35b96f 50%,#fff 50%);border-color:#35b96f #d5dde6 #d5dde6 #35b96f}
  #childView .step-check{font-size:20px;font-weight:900;line-height:1;color:#fff}
- #childView .dino{position:absolute;left:0;top:0;font-size:50px;line-height:1;transition:left .42s cubic-bezier(.2,.8,.25,1);z-index:2;transform:scaleX(-1)}
- #childView .dino-finish{position:absolute;right:10px;top:2px;font-size:44px;z-index:2}
- .find-game .dino-track{margin:0 auto 5px}
- .find-game .dino-track .dino{font-size:68px;top:-9px}
- @media(max-width:700px){#childView .dino-track{width:100%;height:70px;flex-basis:70px;padding-right:58px;margin-top:3px}#childView .dino-path{left:29px;right:43px;top:42px;height:5px}#childView .dino-steps{left:31px;right:46px;top:31px}#childView .dino-step{width:26px;height:26px;border-width:3px}#childView .dino{font-size:43px}#childView .dino-finish{right:3px;top:4px;font-size:37px}}
-
- .find-question-row{position:relative;display:flex;align-items:center;justify-content:center;min-height:92px;margin:0 0 14px;padding:0 76px}.find-question{display:flex;align-items:center;justify-content:center;gap:10px;margin:0;font-size:30px;font-weight:750;color:#123f73}.find-picture{min-width:72px;min-height:72px;padding:4px 8px;background:#f8fbff;border:1px solid #cbd9ea;border-radius:17px;font-size:46px;line-height:1;box-shadow:0 2px 8px #123f7310}.find-nav-arrow{position:absolute;top:50%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border:1.5px solid #d2deea;border-radius:50%;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f730d;display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1}.find-nav-arrow:first-child{left:4px}.find-nav-arrow:last-child{right:4px}.find-nav-arrow:disabled{opacity:.32;cursor:default}.find-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.find-answer{min-height:92px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;border-radius:17px;font-size:30px;font-weight:800;box-shadow:0 4px 12px #123f7315}.find-answer.correct{background:#35b96f;color:#fff;border-color:#35b96f}.find-answer.try-again{background:#edf4fb;border-color:#cbd9ea}
- .correct-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}.correct-confetti span{position:absolute;left:50%;top:58%;font-size:24px;animation:findBurst .85s ease-out forwards;transform:rotate(calc(var(--i)*36deg)) translateY(-10px)}@keyframes findBurst{to{transform:rotate(calc(var(--i)*36deg)) translateY(-130px);opacity:0}}
- @media(max-width:430px){.find-header{margin-bottom:4px}.find-back{font-size:15px}.find-title{font-size:18px}.find-modes{width:210px;margin-bottom:6px}.find-mode{min-height:36px;font-size:14px}.find-game .dino-track .dino{font-size:58px;top:-7px}.find-question-row{min-height:82px;padding:0 54px;margin-bottom:10px}.find-question{font-size:25px}.find-picture{min-width:64px;min-height:64px;font-size:40px}.find-nav-arrow{width:48px;height:48px;min-height:48px;font-size:29px}.find-nav-arrow:first-child{left:0}.find-nav-arrow:last-child{right:0}.find-answers{gap:10px}.find-answer{min-height:76px;font-size:26px}}
- /* RU Find effective visual system: copied from current child-layout.css. */
- /* Keep Games/Find on the same EN child-app geometry as Reading. */
- #childView:has(#findGame:not([hidden])){max-width:none;padding-left:44px;padding-right:44px}
- #childView:has(#findGame:not([hidden])) #gamesView{width:100%;max-width:none;margin:0;align-self:stretch}
- #childView:has(#findGame:not([hidden])) .find-game{width:100%;max-width:none;margin:0;align-self:stretch}
- @media(max-width:700px){#childView:has(#findGame:not([hidden])){padding-left:14px;padding-right:14px}}
- @media(max-width:390px){#childView:has(#findGame:not([hidden])){padding-left:10px;padding-right:10px}}
- #childView:has(#findGame:not([hidden])){height:100dvh;overflow:hidden;display:flex;flex-direction:column;max-width:1240px;padding:24px 44px 38px;background:#fffdf8;color:#123f73}
- #childView:has(#findGame:not([hidden]))>header{min-height:76px;flex:0 0 auto;display:flex;align-items:center;gap:24px;width:100%;max-width:1120px;margin:0 auto}
- #childView:has(#findGame:not([hidden]))>.tabs{display:none}
- #childView #gamesView{min-height:0;flex:1;width:100%;max-width:1120px;margin:0 auto;overflow:hidden;padding-top:0}
- #childView .find-game{width:100%;max-width:1120px;height:100%;margin:0 auto;display:flex;flex-direction:column;position:relative;text-align:center;overflow:visible}
- #childView .find-header{width:100%;max-width:1120px;margin:0 auto 0;min-height:46px;display:flex;align-items:center;justify-content:space-between;flex:0 0 auto}
- #childView .find-back{min-height:44px;padding:7px 4px;background:transparent;color:#55746d;border-radius:10px;font-size:16px;font-weight:700}
- #childView .find-title{color:#123f73;font-size:20px;font-weight:800}
- #childView .find-modes{position:fixed;z-index:12;top:34px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,390px);margin:0;padding:4px;background:#edf4fb;border:1px solid #d5e1ef;border-radius:24px}
- #childView .find-mode{min-height:52px;border-radius:20px;padding:6px 14px;background:transparent;color:#123f73;font-size:16px;font-weight:750}
- #childView .find-mode.active{background:#2389e8;color:#fff;box-shadow:0 3px 10px #2389e83a}
- #childView .find-question-row{position:relative;min-height:0;flex:1;width:100%;display:flex;align-items:center;justify-content:center;padding:8px 145px 28px;margin:0}
+ #childView .dino{position:absolute;left:0;top:-9px;font-size:68px;line-height:1;transition:left .42s cubic-bezier(.2,.8,.25,1);z-index:4!important;transform:translate(-10px,-22px) scaleX(-1)!important}
+ #childView .dino-finish{position:absolute;right:10px;top:2px;font-size:44px;z-index:2;transform:translate(38px,-2px)!important}
+ /* EN shell gets the same RU progress scale without changing its JS-generated DOM. */
+ #childView #gameHost .game-progress{position:relative;width:min(78%,600px);height:82px;min-height:82px;margin:34px auto 5px;padding:35px 46px 0;display:flex;justify-content:space-between;gap:0;flex:0 0 82px;transform:translateY(16px);box-sizing:border-box}
+ #childView #gameHost .game-progress:before{content:"";position:absolute;left:82px;right:96px;top:48px;height:6px;background:#d9e1e8;border-radius:99px}
+ #childView #gameHost .game-progress:after{content:"🦕";position:absolute;left:0;top:-9px;font-size:68px;line-height:1;transform:translate(-10px,-22px) scaleX(-1);z-index:4}
+ #childView #gameHost .game-step{position:relative;z-index:2;box-sizing:border-box;flex:0 0 31px;width:31px;height:31px;border-radius:50%;background:#fff;border:4px solid #d5dde6;color:#fff;font-size:20px;font-weight:900;line-height:1;display:flex;align-items:center;justify-content:center}
+ #childView #gameHost .game-step.done{background:#35b96f;color:#fff;border-color:#35b96f;transform:scale(1.06)}
+ #childView #gameHost .game-step:last-child:after{content:"🏁";position:absolute;left:calc(100% + 4px);top:-33px;font-size:44px;line-height:1;transform:translate(38px,-2px);z-index:3}
+ /* Shared RU task/navigation geometry. */
+ #childView .find-question-row,#childView #gameHost .game-task{position:relative;min-height:0;flex:1;width:100%;display:flex;align-items:center;justify-content:center;padding:8px 145px 28px;margin:0;box-sizing:border-box}
+ #childView .find-nav-arrow,#childView #gameHost .game-nav{position:absolute;top:46%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border:1.5px solid #d2deea;border-radius:50%;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f730d;display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1}
+ #childView .find-nav-arrow:first-child,#childView #gameHost .game-prev{left:34px}
+ #childView .find-nav-arrow:last-child,#childView #gameHost .game-next{right:34px}
+ #childView .find-nav-arrow:disabled,#childView #gameHost .game-nav:disabled{opacity:.32;cursor:default}
+ /* Find = current RU Find component design. */
  #childView .find-question{display:flex;align-items:center;justify-content:center;gap:16px;margin:0;color:#123f73;font-size:clamp(42px,6vw,68px);font-weight:800;line-height:1.05}
- #childView .find-picture{width:112px;height:112px;min-width:112px;min-height:112px;padding:6px;background:transparent;border:0;border-radius:20px;box-shadow:none;font-size:82px;line-height:1;display:flex;align-items:center;justify-content:center}
- #childView .find-nav-arrow{position:absolute;top:46%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border:1.5px solid #d2deea;border-radius:50%;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f730d;display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1}
- #childView .find-nav-arrow:first-child{left:34px}#childView .find-nav-arrow:last-child{right:34px}#childView .find-nav-arrow:hover:not(:disabled){border-color:#aebfd1;background:#fbfdff}#childView .find-nav-arrow:active:not(:disabled){transform:translateY(-50%) scale(.96)}#childView .find-nav-arrow:disabled{opacity:.32;cursor:default}
+ #childView .find-picture,#childView #gameHost .game-picture{width:112px;height:112px;min-width:112px;min-height:112px;padding:6px;background:transparent;border:0;border-radius:20px;box-shadow:none;font-size:82px;line-height:1;display:flex;align-items:center;justify-content:center}
  #childView .find-answers{--find-cols:2;flex:0 0 auto;display:grid;grid-template-columns:repeat(var(--find-cols),minmax(0,1fr));gap:22px;width:min(100%,840px);margin:0 auto 2px}
  #childView .find-answers:has(.find-answer:nth-child(3)){--find-cols:3}
  #childView .find-answer{min-width:0;min-height:82px;padding:12px 18px;border-radius:17px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315;font-size:clamp(30px,4.2vw,54px);font-weight:800;line-height:1.05;white-space:normal;overflow-wrap:anywhere;display:flex;align-items:center;justify-content:center}
  #childView .find-answer.correct{background:#35b96f;color:#fff;border-color:#35b96f}#childView .find-answer.try-again{background:#edf4fb;border-color:#cbd9ea}
- #childView .dino-track{position:relative;width:min(78%,600px);height:82px;margin:5px auto 0;flex:0 0 82px;padding-right:68px}
- #childView .dino-path{position:absolute;left:36px;right:50px;top:48px;height:6px;background:#d9e1e8;border-radius:99px}
- #childView .dino-steps{position:absolute;left:39px;right:53px;top:35px;display:flex;justify-content:space-between}
- #childView .dino-step{width:31px;height:31px;border-radius:50%;background:#fff;border:4px solid #d5dde6;transition:.25s transform,.25s background}
- #childView .dino-step.done{background:#35b96f;border-color:#35b96f;transform:scale(1.06);color:#fff;display:flex;align-items:center;justify-content:center}
- #childView .dino-step.half{background:linear-gradient(90deg,#35b96f 50%,#fff 50%);border-color:#35b96f #d5dde6 #d5dde6 #35b96f}
- #childView .step-check{font-size:20px;font-weight:900;line-height:1;color:#fff}
- #childView .dino{position:absolute;left:0;top:0;font-size:50px;line-height:1;transition:left .42s cubic-bezier(.2,.8,.25,1);z-index:2;transform:scaleX(-1)}
- #childView .dino-finish{position:absolute;right:10px;top:2px;font-size:44px;z-index:2}
- .find-game .dino-track{margin:0 auto 5px}.find-game .dino-track .dino{font-size:68px;top:-9px}
+ /* Catch = current RU Catch component design. */
+ #childView #gameHost .catch-area{position:relative;width:100%;height:330px;min-height:220px;overflow:hidden}
+ #childView #gameHost .catch-answer{position:absolute;left:0;top:0;box-sizing:border-box;width:max-content;min-width:132px;max-width:calc(100% - 28px);height:auto;min-height:82px;padding:10px 26px;white-space:nowrap;overflow:visible;border-radius:17px;font-size:clamp(30px,5vw,40px);line-height:1.15;font-weight:800}
+ #childView #gameHost .catch-answer.correct{background:#35b96f;color:#fff}
+ /* Build Word = current RU component proportions. */
+ #childView #gameHost .build-slots,#childView #gameHost .build-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}
+ #childView #gameHost .build-slot,#childView #gameHost .build-tile{width:clamp(50px,12vw,68px);height:clamp(58px,14vw,76px);min-height:0;padding:4px;border-radius:14px;font-size:clamp(28px,8vw,40px);font-weight:800}
+ #childView #gameHost .build-slot{background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;border-bottom:4px solid #cbd9ea}
+ #childView #gameHost .build-slot.empty{background:transparent;border:0;border-bottom:4px solid #cbd9ea;border-radius:0;box-shadow:none}
+ #childView #gameHost .build-slot.correct{background:#35b96f;color:#fff;border-color:#35b96f}
+ #childView #gameHost .build-tile{background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315}
+ /* What's Missing = current RU component proportions. */
+ #childView #gameHost .game-prompt{font-size:24px;font-weight:800;color:#123f73;min-height:30px}
+ #childView #gameHost .missing-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;align-items:center}
+ #childView #gameHost .missing-word{display:flex;align-items:center;justify-content:center;min-height:86px;padding:12px;border-radius:16px;background:#f8fbff;border:1px solid #cbd9ea;color:#123f73;font-size:clamp(30px,8vw,46px);font-weight:800}
+ #childView #gameHost .game-answers{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;min-height:70px}
+ #childView #gameHost .game-answer{min-height:64px;border-radius:14px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315;font-size:clamp(24px,6vw,34px);font-weight:800}
+ #childView #gameHost .game-answer.correct{background:#35b96f;color:#fff;border-color:#35b96f}#childView #gameHost .game-answer.wrong{box-shadow:0 0 0 2px #cbd9ea inset}
  @media(max-width:700px){
-  #childView:has(#findGame:not([hidden])){padding:10px 14px 18px}
-  #childView:has(#findGame:not([hidden]))>header{min-height:54px}
-  #childView #gamesView{max-width:100%;overflow:auto}
-  #childView .find-game{max-width:100%;min-height:100%}
+  #childView:has(#gamesView:not([hidden])){padding:10px 14px 18px}
+  #childView:has(#gamesView:not([hidden])) #gamesView{max-width:100%;overflow:auto}
+  #childView .find-header,#childView #gameHost .game-header{min-height:42px}
+  #childView .find-back,#childView #gameHost .game-back{font-size:15px;min-height:40px}
+  #childView .find-title,#childView #gameHost .game-title{font-size:18px}
   #childView .find-modes{top:17px;width:min(58%,280px);padding:4px}
   #childView .find-mode{min-height:40px;border-radius:20px;padding:4px 8px;font-size:15px}
-  #childView .find-header{min-height:42px;margin-bottom:0}
-  #childView .find-back{font-size:15px;min-height:40px}
-  #childView .find-title{font-size:18px}
-  #childView .find-question-row{min-height:0;padding:2px 55px 12px}
+  #childView .dino-track{width:100%;height:70px;flex-basis:70px;padding-left:38px!important;padding-right:38px!important;transform:translateY(10px)!important;margin-top:28px}
+  #childView .dino-path{left:29px;right:43px;top:42px;height:5px}#childView .dino-steps{left:31px;right:46px;top:31px}#childView .dino-step{width:26px;height:26px;border-width:3px}
+  #childView .dino{font-size:58px;top:-7px;transform:translate(-8px,-19px) scaleX(-1)!important}
+  #childView .dino-finish{right:3px;top:4px;font-size:37px;transform:translate(31px,-2px)!important}
+  #childView #gameHost .game-progress{width:100%;height:70px;min-height:70px;flex-basis:70px;margin-top:28px;padding:31px 38px 0;transform:translateY(10px)}
+  #childView #gameHost .game-progress:before{left:67px;right:81px;top:42px;height:5px}
+  #childView #gameHost .game-progress:after{font-size:58px;top:-7px;transform:translate(-8px,-19px) scaleX(-1)}
+  #childView #gameHost .game-step{flex-basis:26px;width:26px;height:26px;border-width:3px}
+  #childView #gameHost .game-step:last-child:after{font-size:37px;top:-27px;transform:translate(31px,-2px)}
+  #childView .find-question-row,#childView #gameHost .game-task{padding:2px 55px 12px}
+  #childView .find-nav-arrow,#childView #gameHost .game-nav{width:48px;height:48px;min-height:48px;top:45%;font-size:29px}
+  #childView .find-nav-arrow:first-child,#childView #gameHost .game-prev{left:0}#childView .find-nav-arrow:last-child,#childView #gameHost .game-next{right:0}
   #childView .find-question{gap:10px;font-size:clamp(34px,10vw,48px)}
-  #childView .find-picture{width:82px;height:82px;min-width:82px;min-height:82px;font-size:62px;padding:2px}
-  #childView .find-nav-arrow{width:48px;height:48px;min-height:48px;top:45%;font-size:29px}
-  #childView .find-nav-arrow:first-child{left:0}#childView .find-nav-arrow:last-child{right:0}
-  #childView .find-answers{gap:10px;width:min(100%,440px);margin:0 auto}
+  #childView .find-picture,#childView #gameHost .game-picture{width:82px;height:82px;min-width:82px;min-height:82px;font-size:62px;padding:2px}
+  #childView .find-answers{gap:10px;width:min(100%,440px)}
   #childView .find-answer{min-height:68px;padding:9px 10px;border-radius:14px;font-size:clamp(28px,9vw,42px)}
-  #childView .dino-track{width:100%;height:70px;flex-basis:70px;padding-right:58px;margin-top:3px}
-  #childView .dino-path{left:29px;right:43px;top:42px;height:5px}
-  #childView .dino-steps{left:31px;right:46px;top:31px}
-  #childView .dino-step{width:26px;height:26px;border-width:3px}
-  #childView .dino{font-size:43px}
-  #childView .dino-finish{right:3px;top:4px;font-size:37px}
+  #childView #gameHost .catch-answer{min-width:112px;max-width:calc(100% - 20px);min-height:70px;padding:8px 18px;font-size:clamp(28px,8vw,36px)}
+  #childView #gameHost .build-slot,#childView #gameHost .build-tile{width:clamp(44px,13vw,58px);height:clamp(52px,15vw,66px);font-size:clamp(25px,8vw,34px)}
+  #childView #gameHost .missing-pair{gap:10px}#childView #gameHost .missing-word{min-height:72px;padding:8px}
+  #childView #gameHost .game-prompt{font-size:21px}#childView #gameHost .game-answer{min-height:58px}
  }
  @media(max-width:430px){#childView .find-answers:has(.find-answer:nth-child(3)){grid-template-columns:repeat(2,minmax(0,1fr))}#childView .find-answers:has(.find-answer:nth-child(3)) .find-answer:last-child{grid-column:1/-1}}
+ @media(max-width:390px){#childView:has(#gamesView:not([hidden])){padding-left:10px;padding-right:10px}}
  @media(max-width:340px){#childView .find-answers{grid-template-columns:1fr!important}}
- #childView .dino-track{padding-left:46px!important;padding-right:46px!important;transform:translateY(16px)!important;margin-top:34px!important;overflow:visible!important}
- #childView .dino{transform:translate(-10px,-22px) scaleX(-1)!important;z-index:4!important}
- #childView .dino-finish,#childView .finish-flag{transform:translate(38px,-2px)!important}
- @media(max-width:600px){#childView .dino-track{padding-left:38px!important;padding-right:38px!important;transform:translateY(10px)!important;margin-top:28px!important}#childView .dino{transform:translate(-8px,-19px) scaleX(-1)!important}#childView .dino-finish,#childView .finish-flag{transform:translate(31px,-2px)!important}}
 
- /* Shared EN Games geometry: Reading outer area + RU game component scale. */
- #childView:has(#gameHost:not([hidden])){max-width:none;padding-left:44px;padding-right:44px}
- #childView:has(#gameHost:not([hidden])) #gamesView{width:100%;max-width:none;margin:0;align-self:stretch;overflow:hidden;padding-top:0}
- #childView:has(#gameHost:not([hidden])) #gameHost{width:100%;height:100%;min-height:0;flex:1}
- #childView:has(#gameHost:not([hidden])) .en-game{width:100%;max-width:none;height:100%;margin:0;display:flex;flex-direction:column;position:relative;text-align:center;overflow:visible}
- #childView:has(#gameHost:not([hidden])) .game-header{width:100%;max-width:none;margin:0;min-height:46px;display:flex;align-items:center;justify-content:space-between;flex:0 0 auto}
- #childView:has(#gameHost:not([hidden])) .game-back{position:static;min-height:44px;padding:7px 4px;background:transparent;color:#55746d;border:0;border-radius:10px;font-size:16px;font-weight:700}
- #childView:has(#gameHost:not([hidden])) .game-title{position:absolute;left:50%;transform:translateX(-50%);color:#123f73;font-size:20px;font-weight:800}
- #childView:has(#gameHost:not([hidden])) .game-progress{position:relative;width:min(78%,600px);height:82px;min-height:82px;margin:34px auto 5px;padding-left:46px;padding-right:46px;display:flex;align-items:flex-start;justify-content:space-between;gap:0;flex:0 0 82px;transform:translateY(16px);box-sizing:content-box}
- #childView:has(#gameHost:not([hidden])) .game-progress:before{content:"";position:absolute;left:82px;right:96px;top:48px;height:6px;background:#d9e1e8;border-radius:99px;z-index:0}
- #childView:has(#gameHost:not([hidden])) .game-progress:after{content:"🦕";position:absolute;left:0;top:-9px;font-size:68px;line-height:1;transform:translate(-10px,-22px) scaleX(-1);z-index:4}
- #childView:has(#gameHost:not([hidden])) .game-step{position:relative;z-index:2;flex:0 0 31px;width:31px;height:31px;box-sizing:border-box;border-radius:50%;background:#fff;border:4px solid #d5dde6;font-size:20px;font-weight:900;line-height:23px;color:#fff;display:flex;align-items:center;justify-content:center}
- #childView:has(#gameHost:not([hidden])) .game-step.done{background:#35b96f;color:#fff;border-color:#35b96f;transform:scale(1.06)}
- #childView:has(#gameHost:not([hidden])) .game-progress .game-step:last-child:after{content:"🏁";position:absolute;left:calc(100% + 42px);top:-33px;font-size:44px;line-height:1;transform:translate(38px,-2px);z-index:3}
- #childView:has(#gameHost:not([hidden])) .game-task{position:relative;min-height:0;flex:1;width:100%;display:flex;align-items:center;justify-content:center;padding:8px 145px 28px;box-sizing:border-box}
- #childView:has(#gameHost:not([hidden])) .game-nav{position:absolute;top:46%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border:1.5px solid #d2deea;border-radius:50%;background:#fff;color:#123f73;box-shadow:0 2px 8px #123f730d;font-size:34px;line-height:1;display:flex;align-items:center;justify-content:center}
- #childView:has(#gameHost:not([hidden])) .game-prev{left:34px}#childView:has(#gameHost:not([hidden])) .game-next{right:34px}
- #childView:has(#gameHost:not([hidden])) .game-picture{width:112px;height:112px;min-width:112px;min-height:112px;padding:6px;background:transparent;border:0;border-radius:20px;box-shadow:none;font-size:82px;line-height:1;display:flex;align-items:center;justify-content:center}
- #childView:has(#gameHost:not([hidden])) .game-answer,#childView:has(#gameHost:not([hidden])) .build-tile,#childView:has(#gameHost:not([hidden])) .build-slot{min-height:82px;padding:12px 18px;border-radius:17px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315;font-size:clamp(30px,4.2vw,54px);font-weight:800;line-height:1.05}
- #childView:has(#gameHost:not([hidden])) .game-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;width:min(100%,840px);margin:0 auto}
- #childView:has(#gameHost:not([hidden])) .game-answer.correct,#childView:has(#gameHost:not([hidden])) .build-slot.correct{background:#35b96f;color:#fff;border-color:#35b96f}
- #childView:has(#gameHost:not([hidden])) .game-answer.wrong{background:#edf4fb;border-color:#cbd9ea;box-shadow:0 0 0 2px #cbd9ea inset}
- /* RU Catch component scale. */
- #childView:has(#gameHost:not([hidden])) .catch-area{position:relative;width:100%;height:330px;min-height:220px;overflow:hidden}
- #childView:has(#gameHost:not([hidden])) .catch-answer{box-sizing:border-box;width:max-content;min-width:132px;max-width:calc(100% - 28px);height:auto;min-height:82px;padding:10px 26px;white-space:nowrap;overflow:visible;border-radius:17px;font-size:clamp(30px,5vw,40px);line-height:1.15;font-weight:800}
- /* RU Build Word component proportions. */
- #childView:has(#gameHost:not([hidden])) .build-slots,#childView:has(#gameHost:not([hidden])) .build-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}
- #childView:has(#gameHost:not([hidden])) .build-slot,#childView:has(#gameHost:not([hidden])) .build-tile{width:clamp(50px,12vw,68px);height:clamp(58px,14vw,76px);min-height:0;padding:4px;border-radius:14px;font-size:clamp(28px,8vw,40px);font-weight:800}
- #childView:has(#gameHost:not([hidden])) .build-slot.empty{background:transparent;border:0;border-bottom:4px solid #cbd9ea;border-radius:0;box-shadow:none}
- /* RU What's Missing component proportions. */
- #childView:has(#gameHost:not([hidden])) .game-prompt{font-size:24px;font-weight:800;color:#123f73;min-height:30px}
- #childView:has(#gameHost:not([hidden])) .missing-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;max-width:none;align-items:center}
- #childView:has(#gameHost:not([hidden])) .missing-word{display:flex;align-items:center;justify-content:center;min-height:86px;padding:12px;border-radius:16px;background:#f8fbff;border:1px solid #cbd9ea;color:#123f73;font-size:clamp(30px,8vw,46px);font-weight:800}
- @media(max-width:700px){
-  #childView:has(#gameHost:not([hidden])){padding-left:14px;padding-right:14px}
-  #childView:has(#gameHost:not([hidden])) #gamesView{max-width:100%;overflow:auto}
-  #childView:has(#gameHost:not([hidden])) .game-header{min-height:42px}
-  #childView:has(#gameHost:not([hidden])) .game-back{font-size:15px;min-height:40px}
-  #childView:has(#gameHost:not([hidden])) .game-title{font-size:18px}
-  #childView:has(#gameHost:not([hidden])) .game-progress{width:100%;height:70px;min-height:70px;flex-basis:70px;padding-left:38px;padding-right:38px;margin-top:28px;transform:translateY(10px)}
-  #childView:has(#gameHost:not([hidden])) .game-progress:before{left:67px;right:81px;top:42px;height:5px}
-  #childView:has(#gameHost:not([hidden])) .game-progress:after{font-size:58px;top:-7px;transform:translate(-8px,-19px) scaleX(-1)}
-  #childView:has(#gameHost:not([hidden])) .game-step{flex-basis:26px;width:26px;height:26px;border-width:3px;line-height:20px}
-  #childView:has(#gameHost:not([hidden])) .game-progress .game-step:last-child:after{font-size:37px;top:-27px;left:calc(100% + 31px);transform:translate(31px,-2px)}
-  #childView:has(#gameHost:not([hidden])) .game-task{min-height:0;padding:2px 55px 12px}
-  #childView:has(#gameHost:not([hidden])) .game-nav{width:48px;height:48px;min-height:48px;top:45%;font-size:29px}
-  #childView:has(#gameHost:not([hidden])) .game-prev{left:0}#childView:has(#gameHost:not([hidden])) .game-next{right:0}
-  #childView:has(#gameHost:not([hidden])) .game-picture{width:82px;height:82px;min-width:82px;min-height:82px;font-size:62px;padding:2px}
-  #childView:has(#gameHost:not([hidden])) .game-answer{min-height:68px;padding:9px 10px;border-radius:14px;font-size:clamp(28px,9vw,42px)}
-  #childView:has(#gameHost:not([hidden])) .catch-answer{min-width:112px;max-width:calc(100% - 20px);min-height:70px;padding:8px 18px;font-size:clamp(28px,8vw,36px)}
-  #childView:has(#gameHost:not([hidden])) .build-slot,#childView:has(#gameHost:not([hidden])) .build-tile{width:clamp(44px,13vw,58px);height:clamp(52px,15vw,66px);font-size:clamp(25px,8vw,34px)}
-  #childView:has(#gameHost:not([hidden])) .missing-pair{gap:10px}
-  #childView:has(#gameHost:not([hidden])) .missing-word{min-height:72px;padding:8px;font-size:clamp(30px,8vw,46px)}
-  #childView:has(#gameHost:not([hidden])) .game-prompt{font-size:21px}
- }
- @media(max-width:390px){#childView:has(#gameHost:not([hidden])){padding-left:10px;padding-right:10px}}
-
-.game-card{min-height:150px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;border-radius:22px;box-shadow:0 4px 12px #123f7315;font-size:22px;display:grid;place-items:center;gap:6px}.game-card span{font-size:48px}.game-card:active{background:#2389e8;color:#fff;transform:scale(.985)}
- .en-game{width:min(100%,920px);margin:0 auto;text-align:center;position:relative}.game-header{display:flex;align-items:center;justify-content:center;position:relative;min-height:58px}.game-back{position:absolute;left:0;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea}.game-title{font-size:25px;font-weight:850}.game-progress{display:flex;justify-content:center;gap:7px;margin:16px auto 24px}.game-step{width:25px;height:25px;border-radius:50%;background:#edf4fb;border:1px solid #cbd9ea;font-size:15px;display:grid;place-items:center}.game-step.done{background:#35b96f;color:white;border-color:#35b96f}.game-task{min-height:330px;display:grid;align-content:center;justify-items:center;gap:24px;position:relative;padding:0 76px}.game-picture{background:transparent;font-size:64px;min-height:70px;padding:0}.game-prompt{font-size:25px;font-weight:800}.game-answers{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}.game-answer,.build-tile,.build-slot{min-width:92px;min-height:70px;padding:10px 18px;background:#f8fbff;color:#123f73;border:1px solid #cbd9ea;box-shadow:0 4px 12px #123f7315;border-radius:16px;font-size:34px;font-weight:800}.game-answer.correct,.build-slot.correct{background:#35b96f;color:white;border-color:#35b96f}.game-answer.wrong{box-shadow:0 0 0 3px #d6e0eb inset}.game-nav{position:absolute;top:50%;transform:translateY(-50%);width:58px;height:58px;min-height:58px;padding:0;border-radius:50%;background:white;color:#123f73;border:1px solid #cbd9ea}.game-prev{left:5px}.game-next{right:5px}.game-next.ready{background:#35b96f;color:#fff;border-color:#35b96f}.game-complete,.game-empty{min-height:430px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.game-complete h1,.game-complete p,.game-empty h2,.game-empty p{margin:0}.game-dino{font-size:74px}.game-fireworks{font-size:34px}.game-again{margin-top:22px}.build-slots,.build-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}.build-slot{min-width:66px}.build-slot.empty{background:transparent;box-shadow:none;border:0;border-bottom:4px solid #cbd9ea;border-radius:0}.build-tile{min-width:66px}.build-tile:disabled{visibility:hidden}.missing-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:min(100%,520px)}.missing-word{min-height:86px;padding:15px;border-radius:16px;background:#f8fbff;border:1px solid #cbd9ea;font-size:38px;font-weight:800;display:grid;place-items:center}.catch-area{position:relative;width:100%;height:330px;overflow:hidden}.catch-answer{position:absolute;min-width:130px;min-height:78px;transition:transform 5s ease-in-out}.catch-answer.correct{background:#35b96f;color:white}.game-empty small{color:#7d8599}
- @media(max-width:700px){#childView .tabs{width:min(78%,360px)}.games-grid{gap:12px;margin-top:12px}.game-card{min-height:112px;font-size:17px}.game-card span{font-size:38px}.game-task{padding:0 54px;min-height:290px}.game-answer,.build-tile,.build-slot{font-size:27px;min-width:68px;min-height:60px}.game-nav{width:48px;height:48px;min-height:48px}.game-back{font-size:14px;padding:8px 10px}.missing-word{font-size:30px}}
  `;document.head.appendChild(style);
  const gamesTab=$('gamesTab'),view=$('gamesView'),grid=$('gamesGrid'),host=$('gameHost');if(!gamesTab||!view||!grid||!host)return;let active=null;
  const hidePractice=()=>{['practice','finish'].forEach(id=>{const e=$(id);if(e)e.hidden=true;});};

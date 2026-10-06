@@ -1237,6 +1237,13 @@
                 <button type="button" class="game-card" data-game="build"><span>🧩</span>Build Word</button>
                 <button type="button" class="game-card" data-game="missing"><span>❓</span>What’s Missing?</button>
             </div>
+            <div id="findGame" class="find-game" hidden>
+                <div class="find-header"><button id="allGames" type="button" class="find-back">← Games</button><span class="find-title">Find</span></div>
+                <div class="find-modes"><button id="findSoundsMode" type="button" class="find-mode active">Sounds</button><button id="findWordsMode" type="button" class="find-mode">Words</button></div>
+                <div id="findDinoTrack" class="dino-track" aria-label="Game progress"><div class="dino-path"></div><div id="findDinoSteps" class="dino-steps"></div><div id="findDino" class="dino">🦕</div><div class="dino-finish">🏁</div></div>
+                <div class="find-question-row"><button id="findPrev" type="button" class="find-nav-arrow" aria-label="Previous task">‹</button><div class="find-question"><span>Find</span><button id="findPicture" type="button" class="find-picture" aria-label="Listen"></button><span>?</span></div><button id="findNext" type="button" class="find-nav-arrow" aria-label="Next task">›</button></div>
+                <div id="findAnswers" class="find-answers"></div>
+            </div>
             <div id="gameHost"></div>
         </section>
         <section id="practice" class="learning">
